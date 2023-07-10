@@ -1,35 +1,20 @@
 package com.nkukehenry.userengine.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "loan")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Loan {
+@Table(name = "banks")
+public class Bank {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "loan_name")
-    private String loanName;
-
-    @Column(name = "loan_amount")
-    private double loanAmount;
-
-    @Column(name = "interest_rate")
-    private double interestRate;
-
-    @Column(name = "loan_duration")
-    private int loanDuration;
+    @Column(name = "bank_name")
+    private String bank_name;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
@@ -38,5 +23,6 @@ public class Loan {
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
+
 
 }

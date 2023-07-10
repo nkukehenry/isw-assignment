@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LoanService {
@@ -18,14 +19,20 @@ public class LoanService {
         this.loanRepository = loanRepository;
     }
 
-    public Loan getLoanById(Long loanId) {
-
-        return loanRepository.findById(loanId).orElse(null);
+    public Loan saveLoan(Loan loan) {
+        return loanRepository.save(loan);
     }
 
-    public List<LoanSchedule> generateLoanSchedule(Long loanId) {
+    public Optional<Loan> getLoanById(int loanId) {
 
-        Loan loan = getLoanById(loanId);
+        Loan loan = loanRepository.findById(loanId).orElse(null);
+        return Optional.of(loan);
+    }
+
+    public List<LoanSchedule> generateLoanSchedule(Integer loanId) {
+
+        Optional<Loan> optLoan= getLoanById(loanId);
+        Loan loan = optLoan.get();
 
         if (loan == null) {
             throw new IllegalArgumentException("Loan not found");

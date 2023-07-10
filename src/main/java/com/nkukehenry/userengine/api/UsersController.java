@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UsersController {
     
-    @GetMapping("/")
+    @GetMapping
     public List<User> getUsers() {
 
         List list = new ArrayList<User>();
