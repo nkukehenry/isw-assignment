@@ -4,13 +4,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface  IUserService {
 
     public User getByUserName(String username);
 
-    public User getByUserId(Integer userId);
+    public Optional<User> getByUserId(Integer userId);
 
     public List<User> getAll();
 

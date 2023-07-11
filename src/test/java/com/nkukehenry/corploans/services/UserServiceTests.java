@@ -2,11 +2,11 @@ package com.nkukehenry.corploans.services;
 
 import com.nkukehenry.corploans.models.Loan;
 import com.nkukehenry.corploans.models.User;
-import com.nkukehenry.corploans.repositories.LoansRepository;
 import com.nkukehenry.corploans.repositories.UsersRepository;
-import com.nkukehenry.corploans.services.contracts.ILoanService;
 import com.nkukehenry.corploans.services.contracts.IUserService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
@@ -28,5 +28,14 @@ public class UserServiceTests {
         dummyUser = mock(User.class);
 
         when(usersRepository.findById(anyInt())).thenReturn(Optional.of(dummyUser));
+    }
+
+
+    @Test
+    void testGetUserByIdReturnsAUser(){
+
+        int userId = 1;
+        Optional<User> userOpt = userService.getByUserId(userId);
+        Assertions.assertTrue(userOpt.isPresent());
     }
 }

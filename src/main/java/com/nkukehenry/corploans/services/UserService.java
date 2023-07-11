@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @AllArgsConstructor
@@ -22,8 +23,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User getByUserId(Integer userId) {
-        return usersRepository.getById(userId);
+    public Optional<User> getByUserId(Integer userId) {
+       return usersRepository.findById(userId);
     }
 
     @Override
