@@ -3,6 +3,7 @@ package com.nkukehenry.corploans.services;
 
 import com.nkukehenry.corploans.models.CustomUserDetails;
 import com.nkukehenry.corploans.models.User;
+import com.nkukehenry.corploans.services.contracts.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

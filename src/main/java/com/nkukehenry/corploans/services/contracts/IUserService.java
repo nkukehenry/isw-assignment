@@ -1,17 +1,18 @@
-package com.nkukehenry.corploans.services;
+package com.nkukehenry.corploans.services.contracts;
 import com.nkukehenry.corploans.models.User;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
-interface  IUserService {
+public interface  IUserService {
 
     public User getByUserName(String username);
 
     public User getByUserId(Integer userId);
 
-    public Collection<User> getAll();
+    public List<User> getAll();
 
     public User save(User user);
 

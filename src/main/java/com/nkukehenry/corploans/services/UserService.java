@@ -2,13 +2,16 @@ package com.nkukehenry.corploans.services;
 
 import com.nkukehenry.corploans.models.User;
 import com.nkukehenry.corploans.repositories.UsersRepository;
+import com.nkukehenry.corploans.services.contracts.IUserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
+import java.util.List;
 
 @Component
-public class UserService implements IUserService{
+@AllArgsConstructor
+public class UserService implements IUserService {
 
     @Autowired
     private UsersRepository usersRepository;
@@ -24,7 +27,7 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public Collection<User> getAll() {
+    public List<User> getAll() {
         return usersRepository.findAll();
     }
 

@@ -1,4 +1,4 @@
-package com.nkukehenry.corploans.services;
+package com.nkukehenry.corploans.services.contracts;
 
 import com.nkukehenry.corploans.models.Loan;
 import com.nkukehenry.corploans.models.LoanSchedule;

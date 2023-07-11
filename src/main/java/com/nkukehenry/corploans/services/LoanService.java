@@ -3,6 +3,7 @@ package com.nkukehenry.corploans.services;
 import com.nkukehenry.corploans.models.Loan;
 import com.nkukehenry.corploans.models.LoanSchedule;
 import com.nkukehenry.corploans.repositories.LoansRepository;
+import com.nkukehenry.corploans.services.contracts.ILoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,7 @@ import java.util.Optional;
 
 
 @Component
-public class LoanService implements  ILoanService {
+public class LoanService implements ILoanService {
     private final LoansRepository loanRepository;
 
     @Autowired
@@ -34,7 +35,7 @@ public class LoanService implements  ILoanService {
     public Optional<Loan> getLoanById(Integer loanId) {
 
         Loan loan = loanRepository.findById(loanId).orElse(null);
-        return Optional.of(loan);
+        return  (loan!=null)? Optional.of(loan) :Optional.empty();
     }
 
     @Override

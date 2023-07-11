@@ -36,10 +36,6 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    // user's loans, if any
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<LoanTransaction> loans;
-
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -47,5 +43,14 @@ public class User {
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
+
+
+    // user's loans, if any
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<LoanTransaction> loans;
+
+    @OneToOne(mappedBy = "role")
+    private UserRole role;
+
 
 }

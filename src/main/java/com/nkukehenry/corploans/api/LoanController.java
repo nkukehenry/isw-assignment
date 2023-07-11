@@ -1,7 +1,7 @@
 package com.nkukehenry.corploans.api;
 
 import com.nkukehenry.corploans.models.Loan;
-import com.nkukehenry.corploans.services.ILoanService;
+import com.nkukehenry.corploans.services.contracts.ILoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
