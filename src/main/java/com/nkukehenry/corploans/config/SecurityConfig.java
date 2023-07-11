@@ -16,7 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-public class SecurityConfig {
+public class SecurityConfig  {
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -40,13 +40,14 @@ public class SecurityConfig {
 
     private AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry authorizeReq(AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry authorize){
 
-        return authorize
-                .requestMatchers("/users/*","/banks/*","/institutions/*")
+        return authorize.requestMatchers("/users/*","/banks/*","/institutions/*")
                 .hasAuthority("VENDOR")
                 .requestMatchers("/loans/*")
                 .hasAnyAuthority("BANKER","USER")
                 .requestMatchers("/loans/request/*")
                 .hasAuthority("USER")
+                .requestMatchers("/swagger-ui/")
+                .anonymous()
                 .anyRequest()
                 .authenticated();
     }

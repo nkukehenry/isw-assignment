@@ -24,9 +24,6 @@ public class LoanTransaction {
     @Column(name = "interest_rate")
     private double interestRate;
 
-    @Column(name = "user_id")
-    private Integer user_id;
-
     @ManyToOne
     @JoinColumn(name = "loan_id")
     private Loan loan;
