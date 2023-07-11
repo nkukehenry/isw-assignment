@@ -7,7 +7,6 @@ The system allows 3 types of users to access it:
  * Vendor User    - Sets App other Institutions and Banks
  * Bank User      - Administers loans
  * Corporate User - Consumes bank loan services
- 
 
 ### Run It
 Follow the following instructions to run the project
@@ -18,4 +17,8 @@ Follow the following instructions to run the project
 * Build to check that tests run  successfully
 * Have Mysql Installed
 * Create a database , preferebably name corploans with password of choice
-* 
+
+### API DOcs
+API documentaions accessible at the link below
+http://localhost:8080/swagger-ui/index.html
+
