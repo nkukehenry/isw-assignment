@@ -19,6 +19,6 @@ Follow the following instructions to run the project
 * Create a database , preferebably name corploans with password of choice
 
 ### API DOcs
-API documentaions accessible at the link below
+API documentation accessible at the link below
 http://localhost:8080/swagger-ui/index.html
 
