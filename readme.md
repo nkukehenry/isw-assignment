@@ -9,7 +9,6 @@ The system allows 3 types of users to access it:
  * Corporate User - Consumes bank loan services
  
 
-
 ### Run It
 Follow the following instructions to run the project
 * Requires Jdk >=11
