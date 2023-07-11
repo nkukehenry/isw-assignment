@@ -3,6 +3,7 @@ package com.nkukehenry.corploans.services;
 import com.nkukehenry.corploans.models.Bank;
 import com.nkukehenry.corploans.repositories.BanksRepository;
 import com.nkukehenry.corploans.services.contracts.IBankService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
+@AllArgsConstructor
 public class BankService implements IBankService {
 
     @Autowired
