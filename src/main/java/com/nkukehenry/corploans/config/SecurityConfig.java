@@ -12,6 +12,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import static org.springframework.http.HttpMethod.OPTIONS;
 
 @Configuration
 @EnableWebSecurity
@@ -29,9 +32,7 @@ public class SecurityConfig  {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-                http.csrf()
-                .disable()
-                .authorizeHttpRequests(
+                http.authorizeHttpRequests(
                         (authorize) -> authorizeReq(authorize))
                         .httpBasic(Customizer.withDefaults());
 
@@ -41,19 +42,22 @@ public class SecurityConfig  {
     private AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry authorizeReq(AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry authorize){
 
         return authorize.anyRequest().permitAll();
-        /*
-        return authorize.requestMatchers("/users/*","/banks/*","/institutions/*")
+/*
+        return authorize
+                .requestMatchers(OPTIONS).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/swagger-ui/**")).permitAll()
+                .requestMatchers(
+                        new AntPathRequestMatcher("/users/**"),
+                        new AntPathRequestMatcher("/banks/**"),
+                        new AntPathRequestMatcher("/institutions/**"))
                 .hasAuthority("VENDOR")
-                .requestMatchers("/loans/*")
+                .requestMatchers(new AntPathRequestMatcher("/loans/**"))
                 .hasAnyAuthority("BANKER","USER")
-                .requestMatchers("/loans/request/*")
+                .requestMatchers(new AntPathRequestMatcher("/loans/request/**"))
                 .hasAuthority("USER")
-                .requestMatchers("/swagger-ui/")
-                .anonymous()
                 .anyRequest()
                 .authenticated();
-
-         */
+*/
     }
 
 

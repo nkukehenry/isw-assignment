@@ -1,5 +1,6 @@
 package com.nkukehenry.corploans.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +26,7 @@ public class User {
     private String userName;
 
     @Column(name = "password")
+    @JsonIgnore(true)
     private String password;
 
     @Column(name = "first_name")
@@ -47,10 +49,12 @@ public class User {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-
     // user's loans, if any
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @JsonIgnore(true)
     private List<LoanTransaction> loans;
 
+    @OneToMany(mappedBy = "user")
+    private List<UserInstitution> institutions;
 
 }
