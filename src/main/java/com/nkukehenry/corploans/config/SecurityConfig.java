@@ -40,6 +40,8 @@ public class SecurityConfig  {
 
     private AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry authorizeReq(AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry authorize){
 
+        return authorize.anyRequest().permitAll();
+        /*
         return authorize.requestMatchers("/users/*","/banks/*","/institutions/*")
                 .hasAuthority("VENDOR")
                 .requestMatchers("/loans/*")
@@ -50,6 +52,8 @@ public class SecurityConfig  {
                 .anonymous()
                 .anyRequest()
                 .authenticated();
+
+         */
     }
 
 
