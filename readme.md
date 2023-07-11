@@ -22,5 +22,5 @@ Follow the following instructions to run the project
 API documentation accessible at the link below
 * http://localhost:8080/swagger-ui/index.html
 *
-(swagger-shot.png)
+(./swagger-shot.png)
 
