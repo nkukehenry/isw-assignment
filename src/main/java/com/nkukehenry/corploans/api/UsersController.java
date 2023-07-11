@@ -1,13 +1,11 @@
 package com.nkukehenry.corploans.api;
 
-import com.nkukehenry.corploans.models.User;
 import com.nkukehenry.corploans.services.contracts.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

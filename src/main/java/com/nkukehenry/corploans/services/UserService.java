@@ -1,6 +1,5 @@
 package com.nkukehenry.corploans.services;
 
-import com.nkukehenry.corploans.models.User;
 import com.nkukehenry.corploans.repositories.UsersRepository;
 import com.nkukehenry.corploans.services.contracts.IUserService;
 import lombok.AllArgsConstructor;
