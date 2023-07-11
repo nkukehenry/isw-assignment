@@ -1,4 +1,4 @@
-package com.nkukehenry.userengine.models;
+package com.nkukehenry.corploans.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,28 +8,37 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@Table(name = "loan")
+@Table(name = "users")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class Loan {
+@NoArgsConstructor
+public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "loan_name")
-    private String loanName;
+    @Column(name = "user_name")
+    private String userName;
 
-    @Column(name = "loan_amount")
-    private double loanAmount;
+    @Column(name = "password")
+    private String password;
 
-    @Column(name = "interest_rate")
-    private double interestRate;
+    @Column(name = "first_name")
+    private String firstName;
 
-    @Column(name = "loan_duration")
-    private int loanDuration;
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "email")
+    private String email;
+
+    // user's loans, if any
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<LoanTransaction> loans;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)

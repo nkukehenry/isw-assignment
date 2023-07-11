@@ -1,34 +1,43 @@
-package com.nkukehenry.userengine.services;
+package com.nkukehenry.corploans.services;
 
-import com.nkukehenry.userengine.models.Loan;
-import com.nkukehenry.userengine.models.LoanSchedule;
-import com.nkukehenry.userengine.repositories.LoanRepository;
+import com.nkukehenry.corploans.models.Loan;
+import com.nkukehenry.corploans.models.LoanSchedule;
+import com.nkukehenry.corploans.repositories.LoansRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class LoanService {
-    private final LoanRepository loanRepository;
+
+@Component
+public class LoanService implements  ILoanService {
+    private final LoansRepository loanRepository;
 
     @Autowired
-    public LoanService(LoanRepository loanRepository) {
+    public LoanService(LoansRepository loanRepository) {
         this.loanRepository = loanRepository;
     }
 
+    @Override
+    public List<Loan> getLoans() {
+        return loanRepository.findAll();
+    }
+
+    @Override
     public Loan saveLoan(Loan loan) {
         return loanRepository.save(loan);
     }
 
-    public Optional<Loan> getLoanById(int loanId) {
+    @Override
+    public Optional<Loan> getLoanById(Integer loanId) {
 
         Loan loan = loanRepository.findById(loanId).orElse(null);
         return Optional.of(loan);
     }
 
+    @Override
     public List<LoanSchedule> generateLoanSchedule(Integer loanId) {
 
         Optional<Loan> optLoan= getLoanById(loanId);

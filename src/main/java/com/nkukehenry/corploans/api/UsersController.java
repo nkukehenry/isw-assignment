@@ -1,6 +1,6 @@
-package com.nkukehenry.userengine.api;
+package com.nkukehenry.corploans.api;
 
-import com.nkukehenry.userengine.models.User;
+import com.nkukehenry.corploans.models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

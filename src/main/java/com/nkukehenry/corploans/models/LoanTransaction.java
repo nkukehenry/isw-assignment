@@ -1,4 +1,4 @@
-package com.nkukehenry.userengine.models;
+package com.nkukehenry.corploans.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
