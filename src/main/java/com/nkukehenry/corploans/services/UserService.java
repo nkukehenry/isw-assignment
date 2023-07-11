@@ -1,5 +1,6 @@
 package com.nkukehenry.corploans.services;
 
+import com.nkukehenry.corploans.models.User;
 import com.nkukehenry.corploans.repositories.UsersRepository;
 import com.nkukehenry.corploans.services.contracts.IUserService;
 import lombok.AllArgsConstructor;
@@ -33,7 +34,6 @@ public class UserService implements IUserService {
 
     @Override
     public User save(User user) {
-
         return usersRepository.save(user);
     }
 }

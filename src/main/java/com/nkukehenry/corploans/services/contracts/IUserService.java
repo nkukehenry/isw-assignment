@@ -1,4 +1,5 @@
 package com.nkukehenry.corploans.services.contracts;
+import com.nkukehenry.corploans.models.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
